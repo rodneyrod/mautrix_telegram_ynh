@@ -60,7 +60,7 @@ chown -R "$app:$app" "/var/log/$app"
 ynh_script_progression --message="Registering Synapse app-service" --weight=1
 
 $install_dir/bin/python3 -m mautrix_telegram -g -c "$install_dir/config.yaml" -r "/etc/matrix-$synapse_instance/app-service/$app.yaml"
-/opt/yunohost/matrix-$synapse_instance/update_synapse_for_appservice.sh || echo "Synapse can't restart with the appservice configuration"
+/var/www/$synapse_instance/update_synapse_for_appservice.sh || echo "Synapse can't restart with the appservice configuration"
 
 #=================================================
 # RESTORE SYSTEMD
